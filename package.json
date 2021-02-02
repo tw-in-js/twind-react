@@ -1,6 +1,6 @@
 {
   "name": "@twind/content",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A twind extension that provides a CSS content property directive.",
   "// mark as private to prevent accidental publish - use 'yarn release'": "",
   "private": true,
