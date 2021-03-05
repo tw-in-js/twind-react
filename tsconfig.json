@@ -1,6 +1,6 @@
 {
   "$schema": "http://json.schemastore.org/tsconfig",
-  "include": ["*.ts"],
+  "include": ["*.ts", "*.tsx"],
   "compilerOptions": {
     // During development for Node v10.8 support
     "target": "es2018",
@@ -12,6 +12,7 @@
     "declarationMap": true,
     "noEmitOnError": true,
     "noErrorTruncation": true,
+    "jsx": "preserve",
     // Enforce using `import type` instead of `import` for Types
     "importsNotUsedAsValues": "error",
     "allowJs": true,
