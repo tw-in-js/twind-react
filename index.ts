@@ -85,7 +85,7 @@ export function styled<Variants, BaseVariants, Tag extends React.ElementType>(
   config?: StyledOptions & StyleConfig<Variants, BaseVariants>,
 ): StyledComponent<BaseVariants & Variants, Tag> & string
 
-export function styled<Variants, Tag extends React.ElementType>(
+export function styled<Variants, Tag extends React.ElementType = 'div'>(
   this: TW | null | undefined | void,
   tag?: Tag,
   config?: StyledOptions & StyleConfig<Variants>,
@@ -93,7 +93,7 @@ export function styled<Variants, Tag extends React.ElementType>(
 
 export function styled<Tag extends React.ElementType, Variants>(
   this: TW | null | undefined | void,
-  tag: Tag = 'span' as Tag,
+  tag: Tag = 'div' as Tag,
   { shouldForwardProp = isPropValid, ...config }: StyledOptions & StyleConfig<Variants> = {},
 ) {
   const tw = this || defaultTW
@@ -114,7 +114,7 @@ export function styled<Tag extends React.ElementType, Variants>(
 
   const sc = React.forwardRef(
     <T extends React.ElementType = Tag>(
-      { as = tag as unknown as T, ...props }: PolymorphicPropsWithRef<StyleProps<Variants>, T>,
+      { as = (tag as unknown) as T, ...props }: PolymorphicPropsWithRef<StyleProps<Variants>, T>,
       ref: React.ForwardedRef<any>,
     ) =>
       React.createElement(as, {

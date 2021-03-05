@@ -26,19 +26,73 @@ yarn add @twind/react
 
 > Please see [twind/style](https://twind.dev/docs/modules/twind_style.html) for config examples.
 
+[![Try this example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/twind-react-styled-90y9n?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.js&theme=dark)
+
 ```jsx
-const Button = styled('button', {
-  base: 'text-base',
+import { styled } from "@twind/react"
+
+const Box = styled()
+
+const Button = styled("button", {
+  base: `
+    appearance-none border-none bg-transparent
+    rounded-full px-2.5
+  `,
+
   variants: {
     size: {
-      sm: `text-sm`,
-      lg: `text-lg`,
+      sm: `text-sm h-6`,
+      md: `text-base h-9`,
+    },
+
+    variant: {
+      gray: `
+        bg-gray-500
+        hover:bg-gray-600
+      `,
+      primary: `
+        text-white bg-purple-500
+        hover:bg-purple-600
+      `,
+    },
+    outlined: {
+      true: `bg-transparent ring-1`,
     },
   },
+
+  defaults: {
+    variant: "gray",
+    size: "sm",
+  },
+
+  matches: [
+    {
+      variant: "gray",
+      outlined: true,
+      use: `ring-gray-500`,
+    },
+    {
+      variant: "primary",
+      outlined: true,
+      use: `text-purple-500 ring-gray-500 hover:text-white`,
+    },
+  ],
 })
 
-<Button>Click Me</Button>
-<Button size="lg">Click Me</Button>
+<Box tw="m-2.5 flex flex-wrap" css={{ gap: "20px" }}>
+  <Button>Button</Button>
+  <Button variant="gray">Gray Button</Button>
+  <Button variant="primary">Primary Button</Button>
+  <Button variant="gray" outlined>
+    Outlined Gray Button
+  </Button>
+  <Button variant="primary" outlined>
+    Outlined Primary Button
+  </Button>
+  <Button variant="primary" outlined size={{ initial: "sm", lg: "md" }}>
+    Responsive Primary Button
+  </Button>
+</Box>
 ```
 
 ## License

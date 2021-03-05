@@ -49,10 +49,7 @@ test('styled', ({ sheet, styled }) => {
     </Button>,
   )
 
-  assert.is(
-    markup,
-    '<button type="button" class="tw-xz6gsm tw-jo04kc x">Click Me</button>',
-  )
+  assert.is(markup, '<button type="button" class="tw-xz6gsm tw-jo04kc x">Click Me</button>')
 
   assert.equal(sheet.target, ['.tw-xz6gsm{font-size:1.125rem;line-height:1.75rem}'])
   // const ExtendedButton = styled(Button, {
