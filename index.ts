@@ -96,7 +96,7 @@ export function styled<Tag extends React.ElementType, Variants>(
   tag: Tag = 'div' as Tag,
   { shouldForwardProp = isPropValid, ...config }: StyledOptions & StyleConfig<Variants> = {},
 ) {
-  const tw = this || defaultTW
+  const tw = typeof this == 'function' ? this : defaultTW
 
   const component = style(config)
 
@@ -114,7 +114,7 @@ export function styled<Tag extends React.ElementType, Variants>(
 
   const sc = React.forwardRef(
     <T extends React.ElementType = Tag>(
-      { as = (tag as unknown) as T, ...props }: PolymorphicPropsWithRef<StyleProps<Variants>, T>,
+      { as = tag as unknown as T, ...props }: PolymorphicPropsWithRef<StyleProps<Variants>, T>,
       ref: React.ForwardedRef<any>,
     ) =>
       React.createElement(as, {
