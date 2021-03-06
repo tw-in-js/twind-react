@@ -1,6 +1,6 @@
 {
   "name": "@twind/react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Twind react styled components inspired by stitches",
   "// mark as private to prevent accidental publish - use 'yarn release'": "",
   "private": true,
