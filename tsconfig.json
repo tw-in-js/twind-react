@@ -32,6 +32,12 @@
     // Allow to import json files
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "plugins": [
+      {
+        "name": "@twind/typescript-plugin"
+        // "debug": true
+      }
+    ]
   }
 }
